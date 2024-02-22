@@ -1,0 +1,10 @@
+{
+  "name": "mohamed/lab2",
+  "autoload": {
+    "files": [
+      "config.php",
+      "functions.php"
+    ]
+  },
+  "require": {}
+}
