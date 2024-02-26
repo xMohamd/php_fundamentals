@@ -1,0 +1,12 @@
+{
+  "name": "mohamed/lab3",
+  "autoload": {
+    "files": [
+      "config.php"
+    ],
+    "classmap": [
+      "classes/"
+    ]
+  },
+  "require": {}
+}
