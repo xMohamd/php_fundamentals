@@ -1,0 +1,14 @@
+{
+  "name": "php/lab4",
+  "require": {
+    "illuminate/database": "^10.47"
+  },
+  "autoload": {
+    "files": [
+      "config.php"
+    ],
+    "classmap": [
+      "models/"
+    ]
+  }
+}
