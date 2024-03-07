@@ -25,7 +25,6 @@ if ($db->connect()) {
 if (($_SERVER["REQUEST_METHOD"] == "GET") && isset($_GET["name_column"]) && isset($_GET["value"])) {
   $items = $db->search_by_column($_GET["name_column"], $_GET["value"]);
 }
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -89,10 +88,53 @@ if (($_SERVER["REQUEST_METHOD"] == "GET") && isset($_GET["name_column"]) && isse
       background-color: #f2f2f2;
       cursor: pointer;
     }
+
+    form {
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    form label {
+      font-weight: bold;
+      margin-right: 5px;
+    }
+
+    form select,
+    form input[type="text"] {
+      padding: 5px;
+      margin-right: 10px;
+    }
+
+    form button,
+    form a {
+      padding: 5px 10px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+    }
+
+    form button:hover,
+    form a:hover {
+      background-color: #3e8e41;
+    }
   </style>
 </head>
 
 <body>
+  <form method="GET" action="<?php echo $_SERVER['PHP_SELF']; ?>">
+    <label for="name_column">Search Column:</label>
+    <select name="name_column" id="name_column">
+      <?php foreach ($fields as $field) { ?>
+        <option value="<?php echo $field; ?>"><?php echo $field; ?></option>
+      <?php } ?>
+    </select>
+    <label for="value">Search Value:</label>
+    <input type="text" name="value" id="value" required>
+    <button type="submit">Search</button>
+    <a href="<?php echo $_SERVER['PHP_SELF']; ?>">Show All</a>
+  </form>
   <?php
   if (count($items) > 0) {
     echo '<table>';
